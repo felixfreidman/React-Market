@@ -1,7 +1,15 @@
-import React from "react";
+import React, { Suspense } from "react";
 
-const App = () => {
-	return <h1>App</h1>;
+import PrivateRoutes from "routes/PrivateRoutes";
+import PublicRoutes from "routes/PublicRoutes";
+
+export const App: React.FC = () => {
+	return (
+		<Suspense fallback={"Loading..."}>
+			<PublicRoutes />
+			{/* <PrivateRoutes /> */}
+		</Suspense>
+	);
 };
 
 export default App;
