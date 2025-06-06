@@ -1,7 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { TestDiv } from "./styled";
+import { ProductGroup, ProductGroupContainer } from "./styled";
 import { PageWrapper } from "App.styled";
+import { dummyProducts } from "pages/dummyProducts";
 
 const HomePage: React.FC = () => {
 	return (
@@ -10,7 +11,15 @@ const HomePage: React.FC = () => {
 				<title>Main - React Marketplace</title>
 			</Helmet>
 			<PageWrapper>
-				<h1>Main</h1>
+				<ProductGroup>
+					<h2>Recommended stuff</h2>
+
+					<ProductGroupContainer>
+						{dummyProducts.map((product) => (
+							<ProductCard {...product} key={product.id} />
+						))}
+					</ProductGroupContainer>
+				</ProductGroup>
 			</PageWrapper>
 		</>
 	);
